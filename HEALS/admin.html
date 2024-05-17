@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <div class="menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="side-bar">
+        <header>
+            <div class="close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+            <img src="F1D022090.jpg" alt="">
+            <?php include 'admin.php'; ?>
+        </header>
+        <div class="menu">
+            <div class="item"><a href="#"><i class="fas fa-desktop"></i>Dashboard</a></div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-table"></i>Tables<i class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="#" class="sub-item">Sub Item 01</a>
+                    <a href="#" class="sub-item">Sub Item 02</a>
+                    <a href="#" class="sub-item">Sub Item 03</a>
+                </div>
+            </div>
+            <div class="item"><a href="#"><i class="fas fa-th"></i>Forms</a></div>
+            <div class="item">
+                <a class="sub-btn"><i class="fas fa-cogs"></i>Settings<i class="fas fa-angle-right dropdown"></i></a>
+                <div class="sub-menu">
+                    <a href="#" class="sub-item">Sub Item 01</a>
+                    <a href="#" class="sub-item">Sub Item 02</a>
+                </div>
+            </div>
+            <div class="item"><a href="#"><i class="fas fa-info-circle"></i>About</a></div>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+
+</html>
