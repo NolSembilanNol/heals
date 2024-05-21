@@ -8,6 +8,11 @@ if (isset($_SESSION['session_email'])) {
     exit();
 }
 
+// Periksa apakah ada parameter error di URL
+if (isset($_GET['error']) && $_GET['error'] == 1) {
+    echo "<p class='error'>Email atau Password Anda salah. Silahkan coba lagi.</p>";
+}
+
 // Proses login setelah submit form
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Tangkap data dari form
