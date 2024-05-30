@@ -1,32 +1,26 @@
-document.addEventListener("DOMContentLoaded", function() {
-    // JQuery-like syntax for vanilla JS
+document.addEventListener('DOMContentLoaded', function () {
     const menuBtn = document.querySelector('.menu-btn');
     const sideBar = document.querySelector('.side-bar');
     const closeBtn = document.querySelector('.close-btn');
-    const subBtns = document.querySelectorAll('.sub-btn');
+    const menuItems = document.querySelectorAll('.side-bar ul li');
+    const contents = document.querySelectorAll('.content');
 
-    menuBtn.addEventListener('click', function() {
+    menuBtn.addEventListener('click', function () {
         sideBar.classList.add('active');
-        menuBtn.style.visibility = 'hidden';
     });
+  
 
-    closeBtn.addEventListener('click', function() {
+    closeBtn.addEventListener('click', function () {
         sideBar.classList.remove('active');
-        menuBtn.style.visibility = 'visible';
     });
 
-    subBtns.forEach(function(subBtn) {
-        subBtn.addEventListener('click', function() {
-            const subMenu = subBtn.nextElementSibling;
-            const dropdown = subBtn.querySelector('.dropdown');
-
-            if (subMenu.style.display === 'block') {
-                subMenu.style.display = 'none';
-                dropdown.classList.remove('rotate');
-            } else {
-                subMenu.style.display = 'block';
-                dropdown.classList.add('rotate');
-            }
+    menuItems.forEach(item => {
+        item.addEventListener('click', function () {
+            const contentId = item.getAttribute('data-content');
+            contents.forEach(content => {
+                content.style.display = content.id === contentId ? 'block' : 'none';
+            });
+            sideBar.classList.remove('active');
         });
     });
 });
