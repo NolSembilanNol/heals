@@ -1,0 +1,2 @@
+1. Field id di tabel user tidak auto increment
+2. Saat daftar terdapat insert 'capacity' yang fieldnya tidak ada di model tabel
