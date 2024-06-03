@@ -1,39 +1,53 @@
 <?php
 session_start();
+require 'koneksi.php';
 
-// Mengecek apakah ada sesi aktif
 if (isset($_SESSION['session_email'])) {
-    require 'koneksi.php'; // Sertakan file koneksi.php yang berisi koneksi ke database
+    $action = $_POST['action'];
+    $response = array();
 
-    // Tangkap email dari sesi
-    $email = $_SESSION['session_email'];
+    if ($action == 'create' || $action == 'update') {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $id = $_POST['id'];
 
-    // Query untuk memeriksa kapasitas pengguna berdasarkan email
-    $query_sql = "SELECT * FROM db_user WHERE email = '$email'";
-    $result = mysqli_query($conn, $query_sql);
-
-    // Mengecek apakah query berhasil dieksekusi dan baris hasil ditemukan
-    if ($result && mysqli_num_rows($result) > 0) {
-        // Mengambil data pengguna dari hasil query
-        $user_data = mysqli_fetch_assoc($result);
-
-        // Mengecek kapasitas pengguna
-        $capacity = $user_data['capacity'];
-
-        // Menampilkan sapaan sesuai dengan kapasitas pengguna
-        if ($capacity == 'admin') {
-            echo "<h1>Hai Admin</h1>";
-        } elseif ($capacity == 'fasilitator') {
-            echo "<h1>Hai Fasilitator</h1>";
-        } else {
-            // Jika kapasitas tidak diketahui, tampilkan sapaan umum
-            echo "<h1>Hai " . $_SESSION['session_email'] . "</h1>";
+        if ($action == 'create') {
+            $query = "INSERT INTO db_user (username, email) VALUES ('$username', '$email')";
+        } else if ($action == 'update') {
+            $query = "UPDATE db_user SET username='$username', email='$email' WHERE id=$id";
         }
-    } else {
-        // Jika tidak ada baris hasil, tampilkan sapaan umum
-        echo "<h1>Hai " . $_SESSION['session_email'] . "</h1>";
+
+        if ($conn->query($query) === TRUE) {
+            $response['status'] = 'success';
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = $conn->error;
+        }
+    } else if ($action == 'delete') {
+        $id = $_POST['id'];
+        $query = "DELETE FROM db_user WHERE id=$id";
+
+        if ($conn->query($query) === TRUE) {
+            $response['status'] = 'success';
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = $conn->error;
+        }
+    } else if ($action == 'read') {
+        $query = "SELECT * FROM db_user";
+        $result = $conn->query($query);
+
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $response['data'][] = $row;
+            }
+            $response['status'] = 'success';
+        } else {
+            $response['status'] = 'error';
+            $response['message'] = 'No records found';
+        }
     }
-} else {
-    // Jika tidak ada sesi aktif, tidak ada yang perlu ditampilkan
+
+    echo json_encode($response);
 }
 ?>

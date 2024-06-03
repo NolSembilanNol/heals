@@ -1,21 +1,7 @@
-* {
-    text-decoration: none;
-    margin: 0px;
-    padding: 0px;
-}
-
 body {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Open Sans',sans-serif;
-}
-
-h1 {
-    text-align: center;
-    font-size: 30px;
-    color: #CE5A67;
-    margin-top: 20px; /* Tambahkan margin-top */
-    margin-bottom: 20px; /* Tambahkan margin-bottom */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 .wrapper {
@@ -36,24 +22,9 @@ h1 {
     float: right;
 }
 
-a.tbl-biru {
-    background: #3f72af;
-    border-radius: 20px;
-    margin-top: 20px;
-    padding: 15px 20px 15px 20px;
-    color: #FFFFFF;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-a.tbl-biru:hover {
-    background: #CE5A67;
-    text-decoration: none;
-}
-
 #tutors p.deskripsi{
     z-index: 1;
-    border-bottom:1px solid #3f72af;
+    border-bottom:1px solid #364f6b;
 }
 
 nav {
@@ -66,7 +37,7 @@ nav {
     top: 0;
     background: #FFFFFF;
     z-index: 1;
-    border-bottom:1px solid #070707;
+    border-bottom:1px solid #364f6b;
 }
 
 nav ul {
@@ -92,32 +63,48 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-.kategori li {
+section {
+    margin: auto;
     display: flex;
-    align-items: center;
+    margin-bottom: 50px;
 }
 
-.kategori li img {
-    width: 50px; /* Sesuaikan dengan ukuran yang diinginkan */
-    height: 50px; /* Sesuaikan dengan ukuran yang diinginkan */
-    margin-right: 10px; /* Sesuaikan jarak antara gambar dan teks */
-}
-
-
-.dropdown {
-    display: none;
+a.tbl-biru {
     background: #3f72af;
-    position: absolute;
-    padding: 10px;
-    margin-top: 10px; /* optional: adjust based on your layout */
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 15px 20px 15px 20px;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-weight: bold;
 }
 
-.dropdown-parent:hover .dropdown {
-    display: block;
+main .container {
+    padding: 20px;
 }
 
-.dropdown li {
-    display: block;
+main h2 {
+    text-align: center;
+}
+
+#map {
+    height: 500px;
+    margin-bottom: 20px;
+    position: relative; /* New addition */
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px; /* New addition */
+}
+
+.photo, .details {
+    width: 48%;
+}
+
+.photo img {
+    width: 100%;
 }
 
 .footer {
@@ -163,4 +150,38 @@ nav ul li a:hover {
     color: #fff;
     text-align: center;
     padding: 10px 0;
+}
+
+/* New CSS additions */
+#map .leaflet-bottom.leaflet-right {
+    right: 10px;
+    bottom: 10px;
+}
+
+#map .leaflet-bottom.leaflet-right .leaflet-control {
+    margin-bottom: 0;
+}
+
+.leaflet-control-container .legend {
+    background: white;
+    padding: 10px;
+    line-height: 1.5;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+
+.legend span {
+    margin-left: 5px;
+}
+
+#map {
+    z-index: -0 !important;
 }

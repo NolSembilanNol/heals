@@ -95,7 +95,6 @@ body {
     font-size: 24px;
 }
 
-
 .card i {
     font-size: 50px;
     color: #333;
@@ -105,4 +104,50 @@ body {
 .card p {
     font-size: 24px;
     margin: 0;
+}
+
+#manageusers {
+    padding: 20px;
+}
+
+#manageusers form {
+    margin-bottom: 20px;
+}
+
+#manageusers form div {
+    margin-bottom: 10px;
+}
+
+#manageusers form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#manageusers form input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+#user-list {
+    list-style: none;
+    padding: 0;
+}
+
+#user-list li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#user-list li span {
+    flex-grow: 1;
+}
+
+#user-list li button {
+    margin-left: 10px;
 }

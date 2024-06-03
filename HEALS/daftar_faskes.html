@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEALS</title>
+    <link rel="stylesheet" href="daftar_fakskes.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+</head>
+<body>
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href=''>HEALS</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="daftar_faskes.html">Fasilitas Kesehatan</a></li>
+                    <li><a href="login.html" class="tbl-biru">Log In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <h2>DAFTAR FASILITAS KESEHATAN KOTA MATARAM</h2>
+            <p>Klik pin penanda jika ingin mengetahui lebih lanjut</p>
+            <div id="map"></div>
+            <div class="legend">
+                <h3>Keterangan:</h3>
+                <ul>
+                    <li><span class="legend-icon" style="background-color:red;"></span> Rumah sakit</li>
+                    <li><span class="legend-icon" style="background-color:blue;"></span> Puskesmas</li>
+                    <li><span class="legend-icon" style="background-color:green;"></span> Klinik</li>
+                </ul>
+            </div>
+            
+            <!-- Daftar Tabel Fasilitas Kesehatan Kabupaten Sragen -->
+            <h2>Daftar Tabel Fasilitas Kesehatan Kota Mataram</h2>
+            <input type="text" id="search" placeholder="Search...">
+            <table>
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>Telp</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="facility-table">
+                    <!-- Rows will be populated by JavaScript -->
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button id="prev" disabled>Previous</button>
+                <span id="page-info">1</span>
+                <button id="next">Next</button>
+            </div>
+        </div>
+    </main>
+
+    <div id="aboutus">
+        <div class="wrapper_aboutus">
+            <div class="footer">
+                <div class="footer-section">
+                    <h3>HEALS</h3>
+                    <p>Website sistem informasi fasilitas kesehatan kota Mataram</p>
+                </div>
+                <div class="footer-section">
+                    <h3>About</h3>
+                    <p>Website ini dibuat untuk memenuhi tugas project kelompok Pemrograman Web 2024 </p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>+628123456789</p>
+                    <p>Kode Pos: 112233</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="copyright">
+        <div class="wrapper_aboutus">
+            &copy; 2024. <b>HEALS.</b> Pemrograman web
+        </div>
+    </div>
+
+    <script src="daftar_fakes.js"></script>
+</body>
+</html>
